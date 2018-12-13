@@ -1,0 +1,15 @@
+{
+    "name": "yohaulticetll/validate-emails",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.0.8",
+        "symfony/console": "^3.4",
+        "symfony/filesystem": "^3.4"
+    },
+    "autoload": {
+        "classmap": [
+            "app/"
+        ]
+    }
+}

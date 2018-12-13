@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+$autoload = false;
+$autoloadFiles = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php'
+];
+
+foreach ($autoloadFiles as $file) {
+    if (file_exists($file)) {
+        $autoload = $file;
+        break;
+    }
+}
+
+if (!$autoload) {
+    exit("Please provide autoload file");
+}
+
+require $autoload;
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new \App\Command\ValidateEmailsCommand(new \App\Service\EmailValidator()));
+$application->run();
+
