@@ -119,7 +119,7 @@ class ValidateEmailsCommand extends Command
         $validCount = 0;
         $invalidCount = 0;
         while (($l = fgetcsv($h)) !== false) {
-            $email = $l[0];
+            $email = trim($l[0]);
             if (!empty($email)) {
                 if ($this->emailValidator->emailIsValid($email)) {
                     $validCount++;
